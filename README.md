@@ -3,11 +3,6 @@
 
 Sample projec to understand how to use Prometheus Pushgateway in Golang
 
-## TODO
-
-- [ ] understand difference between `push` vs `add`
-- [ ] understand difference between `Collector` vs `Gatherer`
-
 ## Run
 
 1. Start Prometheus Pushgateway
@@ -17,7 +12,7 @@ make run-pushgateway
 
 2. Run application
 ```shell script
-make run-pushgateway
+make run-all
 ```
 
 3. Open Prometheus Pushgateway UI

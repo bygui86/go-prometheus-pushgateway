@@ -23,12 +23,21 @@ show-pushgateway-metrics :		## Show Prometheus Pushgateway exposed metrics
 
 ## app
 
-build :		## Build application and plugins
-	go build ./...
+build-collector :		## Build application with collector
+	cd collector/ && make build
 
-	#godotenv -f local.env go run main.go
-run :		## Run application
-	go run main.go
+build-gatherer :		## Build application with gatherer
+	cd gatherer/ && make build
+
+build-all : build-collector build-gatherer		## Build all applications
+
+run-collector : build-collector		## Run application with collector
+	cd collector/ && make run
+
+run-gatherer : build-gatherer		## Run application with gatherer
+	cd gatherer/ && make run
+
+run-all : run-collector run-gatherer		## Run all applications
 
 ## helpers
 
